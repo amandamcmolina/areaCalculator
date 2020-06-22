@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilo.css">
+    
+    
+</head>
+<body >
+
+    <!-- pesquisar document.getElementById('exemplo').innerHTML -->
+    <h1 class="text-center mb-3 mt-4">Calculadora de áreas</h1>
+    <main class="mx-auto">
+        <form id="formCalculate" class="text-center">
+            <div class="form-group mb-1">
+                <label for="figureoptions">Selecione a figura:</label>
+                <select name="figureoptions" id="figureoptions" class="figureoptions form-control" >
+                    <option value=""></option>
+                </select></br>
+            </div>
+            <div id="showSquare" style="display: none;">
+                <div class="form-group mb-1" >
+                    <label for="height">Informe o valor da altura: </label>
+                    <input type="number" id="height" class="height form-control" required></br>
+                </div>
+                <div class="form-group mb-1">
+                    <label for="width">Informe o valor da base: </label>
+                    <input type="number" id="width" class = "width form-control" required></br>
+                </div>
+            </div>
+            <div id="showCircle" style="display: none;">
+                <div class="form-group mb-1" >
+                    <label for="radius">Informe o valor o Raio: </label>
+                    <input type="number" id="radius" class="form-control" required></br>
+                </div>
+            </div>
+            <div id="showTrapezium" style="display: none;">
+                <div class="form-group mb-1" >
+                    <label for="baseMaior">Informe o valor da base maior: </label>
+                    <input type="number" id="baseMaior" class="baseMaior form-control" required></br>
+                </div>
+                <div class="form-group mb-1">
+                    <label for="baseMenor">Informe o valor da base menor: </label>
+                    <input type="number" id="baseMenor" class = "baseMenor form-control" required></br>
+                </div>
+                <div class="form-group mb-1">
+                    <label for="alturaTrap">Informe o valor da altura: </label>
+                    <input type="number" id="alturaTrap" class = "alturaTrap form-control" required></br>
+                </div>
+            </div>
+            <div class="form-group mb-1">
+                <label for="opcoesUnidades">Selecione a unidade de medida:</label>
+                <select name="opcoesUnidades" id="opcoesUnidades" class="opcoesUnidades form-control" required>
+                    <option value=""></option>
+                </select></br>
+            </div>
+            <button class="btn btn-primary btn-calcular" onclick = "calculate()"> Calcular</button></a>
+        </form></br>
+
+        <h3 class="text-center"></h3>
+
+        <!-- <a href="resultado.html">Calcular</a> -->
+        <!-- <input type="button" value="Calcular" id='calculate' onclick = "calculate()"> -->
+
+        
+
+    </main>
+
+
+    <script src="javascript/resultado.js"></script>
+
+
+
+    
+</body>
+</html>
+
+
+
+
+
+
+<!-- // Fazer uma calculadora
+// escolher figura
+// passar dados sobre medidas dos lados
+// passar informação sobre unidade de medida
+// retorna área da figura
+
+// se selecionaram quadrado - área = l x l -->
+
+
+
