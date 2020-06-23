@@ -14,3 +14,44 @@ a{
     color: black;
     text-decoration: none;
 }
+
+
+#figureoptions button{
+
+    padding: 10px;
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+}
+
+#Quadrado{
+    background-color: gray;
+    border: none;
+}
+
+#Circunferência{
+    border-radius: 50%;
+    background-color: gray;
+    border : none;
+}
+
+#Retângulo{ 
+    width: 150px!important;
+    border: none;
+    background-color: gray;
+}
+
+#Triângulo-Retângulo{
+    background-color: white;
+    width:120px;
+    height:120px;
+    border: 50px solid;
+    border-color: white gray gray white;
+    padding: 0!important;
+    
+}
+
+#Trapézio{
+    background-color: gray;
+    border: none;
+}

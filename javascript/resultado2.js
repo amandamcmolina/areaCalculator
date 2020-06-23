@@ -2,30 +2,35 @@
 // const meuCabecalho = document.querySelector('h1');
 // meuCabecalho.textContent = 'Ola mundo!';s
 
-var select = document.getElementById("figureoptions"); 
-var options = ["Quadrado", "Triângulo Retângulo", "Retângulo", "Circunferência",'Trapézio']; 
+var select = document.getElementById("figureoptions")
+var options = ["Quadrado", "Triângulo-Retângulo", "Retângulo", "Circunferência",'Trapézio']; 
 
     for(var i = 0; i < options.length; i++) {
         var opt = options[i];
-        var el = document.createElement("option"); 
+        var el = document.createElement("button"); 
         el.textContent = opt;   
         el.value = opt; 
+        el.id = opt;
         select.appendChild(el); 
+        el.addEventListener('click', selectFigure);
     }
+
+
 
 var selectUnit = document.getElementById("opcoesUnidades"); 
 var optionsUnit = ["Metro", "Centímetro", "Quilômetro"]; 
 
     for(var i = 0; i < optionsUnit.length; i++) {
         var optUnit = optionsUnit[i];
-        var elUnit = document.createElement("option");
+        var elUnit = document.createElement("option"); 
         elUnit.textContent = optUnit;   
         elUnit.value = optUnit; 
         selectUnit.appendChild(elUnit); 
     }
 
+
 function getDatas(){
-    var option = document.getElementById('figureoptions').value;
+    var option = document.getElementById('selectedOption').value;
     var height =  document.getElementById('height').value;
     var width = document.getElementById('width').value;
     //var unit = document.getElementById('opcoesUnidades').value;
@@ -38,9 +43,9 @@ function getDatas(){
         'opcao' : option,
         'unidade' : document.getElementById('opcoesUnidades').value,
         'raio' : document.getElementById('radius').value,
-        'baseMenor' : document.getElementById('baseMenor').value,
-        'baseMaior' : document.getElementById('baseMaior').value,
-        'alturaTrap' : document.getElementById('alturaTrap').value,
+        'baseMenor' : parseInt(document.getElementById('baseMenor').value),
+        'baseMaior' : parseInt(document.getElementById('baseMaior').value),
+        'alturaTrap' : parseInt(document.getElementById('alturaTrap').value),
     }
 }
 
@@ -67,7 +72,6 @@ function areaCircle(inputs){
     return areaCircle;
 }
 
-
 function areaTrapezium(inputs){
     areaTrapezium = ((inputs.baseMaior + inputs.baseMenor) * inputs.alturaTrap) / 2;
     return areaTrapezium;
@@ -93,42 +97,65 @@ var functions = {
     'Trapézio' : areaTrapezium
 }
 
-var select = document.getElementById('figureoptions');
-    select.addEventListener('change', square);
+// var select = document.getElementById('figureoptions');
+//     select.addEventListener('change', square);
 
-function square() {
-    var x = document.getElementById("figureoptions").value;
-    if (['Quadrado', 'Triângulo Retângulo', 'Retângulo'].includes(x)){
-        document.getElementById("showSquare").style.display = 'block'; 
-    }else{
-        document.getElementById("showSquare").style.display = 'none';
-    }
+// function square() {
+//     var x = document.getElementById("figureoptions").value;
+//     if (['Quadrado', 'Triângulo Retângulo', 'Retângulo'].includes(x)){
+//         document.getElementById("showSquare").style.display = 'block'; 
+//     }else{
+//         document.getElementById("showSquare").style.display = 'none';
+//     }
     
-}
+// }
 
-select.addEventListener('change', circle); //solução para desaparecer os outros itens
+// select.addEventListener('change', circle); //solução para desaparecer os outros itens
 
-function circle() {
-    var x = document.getElementById("figureoptions").value;
-    if(['Circunferência'].includes(x)){
-        document.getElementById("showCircle").style.display = 'block';
-    }
-    else{
-        document.getElementById("showCircle").style.display = 'none';
-    }
-}
+// function circle() {
+//     var x = document.getElementById("figureoptions").value;
+//     if(['Circunferência'].includes(x)){
+//         document.getElementById("showCircle").style.display = 'block';
+//     }
+//     else{
+//         document.getElementById("showCircle").style.display = 'none';
+//     }
+// }
 
-select.addEventListener('change', trapezium); //solução para desaparecer os outros itens
+// select.addEventListener('change', trapezium); //solução para desaparecer os outros itens
 
-function trapezium() {
-    var x = document.getElementById("figureoptions").value;
+// function trapezium() {
+//     var x = document.getElementById("figureoptions").value;
+//     if(['Trapézio'].includes(x)){
+//         document.getElementById("showTrapezium").style.display = 'block';
+//     }
+//     else{
+//         document.getElementById("showTrapezium").style.display = 'none';
+//     }
+// }
+
+function selectFigure(option){
+    
+    var x = option.target.value;
+    hideOptions();
+    document.getElementById("selectedOption").value = x;
     if(['Trapézio'].includes(x)){
         document.getElementById("showTrapezium").style.display = 'block';
-    }
-    else{
-        document.getElementById("showTrapezium").style.display = 'none';
+    }else if (['Quadrado', 'Triângulo Retângulo', 'Retângulo'].includes(x)){
+        document.getElementById("showSquare").style.display = 'block'; 
+    }else if(['Circunferência'].includes(x)){
+        document.getElementById("showCircle").style.display = 'block';
     }
 }
+
+function hideOptions(){
+    Array.from(document.getElementsByClassName("showFigure")).forEach(     
+        function(element, index, array){
+            element.style.display = 'none';    
+        } 
+    );
+}
+
 
 
 
@@ -139,6 +166,7 @@ function calculate(){
     // var optionUse = getDatas()[0];
     // var unitUse = getDatas()[3];
     var inputs = getDatas();
+    console.log(inputs);
     //MAP
     var area = functions[inputs.opcao](inputs);
     
