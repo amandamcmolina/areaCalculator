@@ -91,7 +91,7 @@ function send(unitUse, area) {
 
 var functions = {
     'Quadrado': areaSquare,
-    'Triângulo Retângulo' : areaTriangle,
+    'Triângulo-Retângulo' : areaTriangle,
     'Retângulo' : areaRectangle,
     'Circunferência' : areaCircle,
     'Trapézio' : areaTrapezium
@@ -141,7 +141,7 @@ function selectFigure(option){
     document.getElementById("selectedOption").value = x;
     if(['Trapézio'].includes(x)){
         document.getElementById("showTrapezium").style.display = 'block';
-    }else if (['Quadrado', 'Triângulo Retângulo', 'Retângulo'].includes(x)){
+    }else if (['Quadrado', 'Triângulo-Retângulo', 'Retângulo'].includes(x)){
         document.getElementById("showSquare").style.display = 'block'; 
     }else if(['Circunferência'].includes(x)){
         document.getElementById("showCircle").style.display = 'block';
@@ -157,7 +157,20 @@ function hideOptions(){
 }
 
 
+//  var myButton = document.querySelectorAll('#figureoptions > button');
 
+//  myButton.forEach(function(key){
+//      key.addEventListener('click', function(){
+//          removeStyles();
+//          this.setAttribute('class', 'btn');
+//      });
+//  })
+
+//  function removeStyles(){
+//      for(var i = 0;i < myButton.length;i++){
+//          document.querySelectorAll('#figureoptions > button')[i].removeAttribute('class');
+//      }
+//  }
 
 
 function calculate(){

@@ -1,5 +1,5 @@
 main{
-    width: 32%; 
+    width: 34%; 
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -19,39 +19,93 @@ a{
 #figureoptions button{
 
     padding: 10px;
-    margin: 10px;
+    margin: 2px;
     width: 120px;
     height: 120px;
+    color: white;
+    font-weight: bold;
 }
 
-#Quadrado{
+#figureoptions button:hover:not(#Trapézio, #Triângulo-Retângulo) {
     background-color: gray;
-    border: none;
 }
+
+
+
+/* #figureoptions button:link{
+    background-color: gray;
+    //border: solid black 1px;
+    box-shadow:
+                1px 1px #53a7ea,
+                2px 2px #53a7ea,
+                3px 3px #53a7ea;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+        transition-delay: 0.1s;
+} */
+
+/* #figureoptions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* #figureoptions > button {
+    background: rgb(175, 168, 168);
+    padding: 10px;
+    margin: 5px;
+    width: 120px;
+    height: 120px;
+    color: white;
+    font-weight: bold; 
+    
+}
+
+.buttonClicked {
+    background-color: gray!important;
+    color: #fff;
+} */
+
+#Quadrado{
+    background-color: rgb(175, 168, 168);
+    border: none;
+
+
+}
+
 
 #Circunferência{
     border-radius: 50%;
-    background-color: gray;
+    background-color: rgb(175, 168, 168);
     border : none;
 }
 
 #Retângulo{ 
     width: 150px!important;
     border: none;
-    background-color: gray;
+    background-color: rgb(175, 168, 168);
 }
 
 #Triângulo-Retângulo{
-    background-color: white;
-    width:120px;
-    height:120px;
-    border: 50px solid;
-    border-color: white gray gray white;
+    border-color: white rgb(175, 168, 168) rgb(175, 168, 168) white;
+    border-style: solid;
+    border-width: 60px 60px 60px 60px;
+    height: 0px;
+    width: 0px;
     padding: 0!important;
     
 }
 
 #Trapézio{
-    background-color: gray;
-    border: none;
+    background-color: transparent;
+    border-bottom: 100px solid rgb(175, 168, 168);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    height: 0;
+    width: 100px;
+}
+
+#Trapézio:hover{
+    background-color: transparent;
+    border-bottom: 100px solid gray;
 }
